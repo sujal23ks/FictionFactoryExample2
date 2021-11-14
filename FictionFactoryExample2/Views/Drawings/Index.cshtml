@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FictionFactoryExample2.Models.DrawingsEntity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model._id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Box_Hori_Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width_row)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depth_row)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Box_Vert_Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width_col)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height_Col)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Box_Back_Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width_bk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height_bk)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item._id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Box_Hori_Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width_row)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depth_row)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Box_Vert_Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width_col)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height_Col)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Box_Back_Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width_bk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height_bk)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Name=item.Name }) |
+                @Html.ActionLink("Details", "Details", new { Name = item.Name }) |
+                @Html.ActionLink("Delete", "Delete", new { Name = item.Name })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
