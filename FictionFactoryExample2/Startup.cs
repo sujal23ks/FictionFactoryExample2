@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FictionFactoryExample2.Services;
 
 namespace FictionFactoryExample2
 {
@@ -25,6 +26,7 @@ namespace FictionFactoryExample2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddTransient<IDrawingstore, DrawingsDBContext>();
             services.Configure<Data.Settings>(
                 options =>
@@ -32,6 +34,7 @@ namespace FictionFactoryExample2
                     options.ConnectionString = Configuration.GetSection("MongoDB:ConnectionString").Value;
                     options.Database = Configuration.GetSection("MongoDB:Database").Value;
                 });
+            services.AddSingleton<DrawingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +51,7 @@ namespace FictionFactoryExample2
             app.UseStaticFiles();
 
             app.UseRouting();
+            
 
             app.UseAuthorization();
 
